@@ -1,0 +1,6 @@
+C:\Users\TranDat\Desktop\Planguage\Planguage\bin\Debug\Planguage.exe
+C:\Users\TranDat\Desktop\Planguage\Planguage\bin\Debug\Planguage.pdb
+C:\Users\TranDat\Desktop\Planguage\Planguage\bin\Debug\Antlr4.Runtime.Standard.dll
+C:\Users\TranDat\Desktop\Planguage\Planguage\obj\x86\Debug\Planguage.exe
+C:\Users\TranDat\Desktop\Planguage\Planguage\obj\x86\Debug\Planguage.pdb
+C:\Users\TranDat\Desktop\Planguage\Planguage\obj\x86\Debug\Planguage.csprojResolveAssemblyReference.cache

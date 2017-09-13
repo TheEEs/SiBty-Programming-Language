@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProjectGuid>{5A8F97DC-6EEA-4AFE-ACDE-CF4A48E0D16C}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>Planguage</RootNamespace>
+    <AssemblyName>Planguage</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ExternalConsole>true</ExternalConsole>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ExternalConsole>true</ExternalConsole>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="Antlr4.Runtime.Standard">
+      <HintPath>..\packages\Antlr4.Runtime.Standard.4.7.1\lib\net35\Antlr4.Runtime.Standard.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="interpreter\langLexer.cs" />
+    <Compile Include="interpreter\langParser.cs" />
+    <Compile Include="vm\CommonInterfaces\SiBtyObject.cs" />
+    <Compile Include="interpreter\SiBtyInterpreter.cs" />
+    <Compile Include="etc\Errors.cs" />
+    <Compile Include="etc\SibtyBase.cs" />
+    <Compile Include="interpreter\langParserListener.cs" />
+    <Compile Include="interpreter\langParserBaseListener.cs" />
+    <Compile Include="vm\CommonInterfaces\SiBtyInstruction.cs" />
+    <Compile Include="vm\core\space\Space.cs" />
+    <Compile Include="vm\core\instructions\BaseInstructions.cs" />
+    <Compile Include="vm\core\instructions\mathematics\Add.cs" />
+    <Compile Include="vm\core\instructions\mathematics\Sub.cs" />
+    <Compile Include="vm\core\instructions\mathematics\Mul.cs" />
+    <Compile Include="vm\core\instructions\mathematics\Div.cs" />
+    <Compile Include="vm\core\instructions\mathematics\Mod.cs" />
+    <Compile Include="vm\core\instructions\mathematics\Exponent.cs" />
+    <Compile Include="vm\core\instructions\mathematics\Positive.cs" />
+    <Compile Include="vm\core\instructions\mathematics\Negative.cs" />
+    <Compile Include="vm\core\instructions\relational\Equal.cs" />
+    <Compile Include="vm\core\instructions\relational\Different.cs" />
+    <Compile Include="vm\core\instructions\relational\Bigger.cs" />
+    <Compile Include="vm\core\instructions\relational\BiggerOrEqual.cs" />
+    <Compile Include="vm\core\instructions\relational\Smaller.cs" />
+    <Compile Include="vm\core\instructions\relational\SmallerOrEqual.cs" />
+    <Compile Include="vm\core\instructions\bitwises\BitwiseNot.cs" />
+    <Compile Include="vm\core\instructions\bitwises\BitwiseAnd.cs" />
+    <Compile Include="vm\core\instructions\bitwises\BitwiseXor.cs" />
+    <Compile Include="vm\core\instructions\bitwises\BitwiseOr.cs" />
+    <Compile Include="vm\core\instructions\bitwises\BitwiseLShift.cs" />
+    <Compile Include="vm\core\instructions\bitwises\BitwiseRShift.cs" />
+    <Compile Include="vm\Prototypes\Array.cs" />
+    <Compile Include="vm\Prototypes\BaseFunction.cs" />
+    <Compile Include="vm\Prototypes\Boolean.cs" />
+    <Compile Include="vm\Prototypes\Float.cs" />
+    <Compile Include="vm\Prototypes\Hash.cs" />
+    <Compile Include="vm\Prototypes\NilClass.cs" />
+    <Compile Include="vm\Prototypes\Number.cs" />
+    <Compile Include="vm\Prototypes\String.cs" />
+    <Compile Include="vm\core\instructions\boolean\BooleanNot.cs" />
+    <Compile Include="vm\core\instructions\boolean\BooleanAnd.cs" />
+    <Compile Include="vm\core\instructions\boolean\BooleanOr.cs" />
+    <Compile Include="vm\CommonInterfaces\SiBtySpace.cs" />
+    <Compile Include="vm\core\instructions\space\ClearExStack.cs" />
+    <Compile Include="vm\core\instructions\space\Load.cs" />
+    <Compile Include="vm\core\instructions\space\Load_Var.cs" />
+    <Compile Include="vm\core\instructions\space\Assign.cs" />
+    <Compile Include="vm\core\instructions\space\Jump.cs" />
+    <Compile Include="vm\core\instructions\space\JumpIfNot.cs" />
+    <Compile Include="etc\etc.cs" />
+    <Compile Include="vm\core\instructions\space\ConsoleOut.cs" />
+    <Compile Include="vm\core\instructions\space\MemberAccess.cs" />
+    <Compile Include="vm\core\instructions\space\Return.cs" />
+    <Compile Include="vm\core\instructions\space\FunctionCall.cs" />
+    <Compile Include="etc\ErrorSt.cs" />
+    <Compile Include="vm\core\instructions\space\MemberSetting.cs" />
+    <Compile Include="vm\Prototypes\ExternalFunction.cs" />
+    <Compile Include="vm\SiBtyVirtualMachine\SiBtyVirtualMachine.cs" />
+    <Compile Include="vm\core\instructions\etc\HashInit.cs" />
+    <Compile Include="interpreter\ErrorHandler.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="vm\" />
+    <Folder Include="interpreter\" />
+    <Folder Include="vm\CommonInterfaces\" />
+    <Folder Include="vm\core\" />
+    <Folder Include="vm\core\instructions\" />
+    <Folder Include="etc\" />
+    <Folder Include="vm\core\space\" />
+    <Folder Include="vm\core\instructions\mathematics\" />
+    <Folder Include="vm\core\instructions\relational\" />
+    <Folder Include="vm\core\instructions\bitwises\" />
+    <Folder Include="vm\Prototypes\" />
+    <Folder Include="vm\core\instructions\boolean\" />
+    <Folder Include="vm\core\instructions\space\" />
+    <Folder Include="vm\SiBtyVirtualMachine\" />
+    <Folder Include="vm\core\instructions\etc\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+</Project>

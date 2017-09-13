@@ -1,0 +1,3 @@
+C:\Users\TranDat\Desktop\Planguage\Planguage\bin\Release\Planguage.exe
+C:\Users\TranDat\Desktop\Planguage\Planguage\bin\Release\Antlr4.Runtime.Standard.dll
+C:\Users\TranDat\Desktop\Planguage\Planguage\obj\x86\Release\Planguage.exe
