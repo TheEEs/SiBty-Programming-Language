@@ -83,9 +83,9 @@ Tất cả các ký tự từ dấu `#` tới ký tự *'\n'* đầu tiên đư�
 
 
 
-### 4. Comments
+### 4. Line-terminators.
 
-Một dòng lệnh trong `SiBty` được kết thúc bằng ký tự xuống dòng hoặc `;`. 
+Một dòng lệnh trong `SiBty` được kết thúc bằng ký tự xuống dòng `\n` hoặc `;`. 
 
 ```javascript
 var x = 1+1;print x
