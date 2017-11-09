@@ -83,7 +83,7 @@ Tất cả các ký tự từ dấu `#` tới ký tự *'\n'* đầu tiên đư�
 
 
 
-### 4. Line-terminators.
+### 5. Line-terminators.
 
 Một dòng lệnh trong `SiBty` được kết thúc bằng ký tự xuống dòng `\n` hoặc `;`. 
 
