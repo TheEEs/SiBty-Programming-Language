@@ -238,7 +238,7 @@ end(4,20)
 
 Array là một tập hợp các phần tử. `SiBty` hỗ trợ array, để khai báo một array, bạn sử dụng cặp ngoặc vuông **[ ]**. các phần tử trong mảng cách nhau bởi dấu `,`. Để truy xuất đến một phần tử trong array, bạn sử dụng cú pháp `<expression>[<expression>]`. Để thiết đặt một giá trị mới cho phần tử trong Array, bạn sử dụng cú pháp `<expression>[<expression>] = <expression>`.
 
-Dưới đây là ví dụ về cách sắp xếp một mảng sử dụng thuật toán Bubble sort.
+Dưới đây là ví dụ về cách sắp xếp một mảng sử dụng thuật toán Interchange sort.
 
 ```ruby
 var array=[1,6,5,2,7,2]
