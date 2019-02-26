@@ -13,6 +13,7 @@ namespace Planguage
 		public ExternalFunction(SiBtySpace parent_space,  __function__ func_, params string[] param_names):base(parent_space,param_names)
 		{
 			this.__fnc__ = func_;
+            this._return_value = new NilClass();
 		}
 		public override void exec()
 		{

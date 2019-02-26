@@ -1,3 +1,8 @@
-C:\Users\TranDat\Desktop\Planguage\Planguage\bin\Release\Planguage.exe
-C:\Users\TranDat\Desktop\Planguage\Planguage\bin\Release\Antlr4.Runtime.Standard.dll
-C:\Users\TranDat\Desktop\Planguage\Planguage\obj\x86\Release\Planguage.exe
+C:/Users/TranDat/Desktop/Planguage/Planguage/bin/Release/Planguage.exe
+C:/Users/TranDat/Desktop/Planguage/Planguage/bin/Release/Antlr4.Runtime.Standard.dll
+C:/Users/TranDat/Desktop/Planguage/Planguage/obj/x86/Release/Planguage.exe
+/home/trandat/Desktop/Plang/bin/Release/Planguage.exe
+/home/trandat/Desktop/Plang/obj/x86/Release/Planguage.csprojAssemblyReference.cache
+/home/trandat/Desktop/Plang/obj/x86/Release/Planguage.csproj.CoreCompileInputs.cache
+/home/trandat/Desktop/Plang/obj/x86/Release/Planguage.csproj.CopyComplete
+/home/trandat/Desktop/Plang/obj/x86/Release/Planguage.exe

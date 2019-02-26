@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 namespace Planguage
 {
-	public class Space : SiBtySpace
-	{
-
-		internal Space parent_space;
+    public class Space : SiBtySpace
+    {
+        
+        internal Space parent_space;
 		internal Dictionary<string, SibtyObject> variables = new Dictionary<string, SibtyObject>();
 		Stack<SibtyObject> expression_stack = new Stack<SibtyObject>();
 		internal List<SiBtyInstruction> instructions = new List<SiBtyInstruction>();

@@ -3,7 +3,7 @@ namespace Planguage
 {
 	public interface SiBtySpace
 	{
-		void modify_instruction(int index, SiBtyInstruction new_instruction);
+        void modify_instruction(int index, SiBtyInstruction new_instruction);
 		void set_instruction_ptr(int value);
 		int number_of_instruction();
 		int Instruction_Pointer { get; }

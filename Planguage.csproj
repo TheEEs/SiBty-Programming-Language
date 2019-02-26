@@ -7,7 +7,7 @@
     <OutputType>Exe</OutputType>
     <RootNamespace>Planguage</RootNamespace>
     <AssemblyName>Planguage</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
     <DebugSymbols>true</DebugSymbols>
@@ -97,6 +97,8 @@
     <Compile Include="vm\SiBtyVirtualMachine\SiBtyVirtualMachine.cs" />
     <Compile Include="vm\core\instructions\etc\HashInit.cs" />
     <Compile Include="interpreter\ErrorHandler.cs" />
+    <Compile Include="vm\Utilities\BaseUtility.cs" />
+    <Compile Include="vm\Utilities\ModuleUtility\ModuleUtils.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -117,6 +119,8 @@
     <Folder Include="vm\core\instructions\space\" />
     <Folder Include="vm\SiBtyVirtualMachine\" />
     <Folder Include="vm\core\instructions\etc\" />
+    <Folder Include="vm\Utilities\" />
+    <Folder Include="vm\Utilities\ModuleUtility\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
