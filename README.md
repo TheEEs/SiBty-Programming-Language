@@ -340,7 +340,7 @@ public class MathUtils : BaseUtility{
 	
 	/*
 	External attribute has two field: function_name and parameters 
-	function_name will be the variable name we use to access to the function in SiBty programs
+	function_name will be the variable name we use to access the function in SiBty programs
 	parameters is the list of parameters's name as we defined in the simple case above
 	*/
 	[External(parammeters = new string[] { "number" })]
