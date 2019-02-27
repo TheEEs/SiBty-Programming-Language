@@ -295,3 +295,75 @@ fn(hash)
 
 
 Vì lý do cú pháp, ở phiên bản này, bạn chỉ có thể sử dụng toán tử gọi hàm thành viên ngay sau một định danh hoặc ngay sau một hash. Đây là một sự bất tiện, đội ngũ phát triển sẽ khắc phục trong những ấn bản sắp tới.
+
+### 16. Viết extensions cho SiBty
+Những tính năng built-in trong SiBty rất đơn giản. Trong nhiều trường hợp lập trình viên sẽ muốn mở rộng ngôn ngữ này để phục vụ thêm các mục đích của mình.
+SiBty cho phép các nhà phát triển tạo ra extensions cho nó. Có hai phương pháp giúp bạn tạo ra các extension.
+##### 16.1 Simple case
+Nếu bạn chỉ muốn tạo ra vài phương thức đơn lẻ, đây sẽ là lựa chọn của bạn.
+SiBty cung cấp một lớp `ExternalFunction` cho phép bạn tạo ra các phương thức bên ngoài bằng C#, VB.Net, F#, ..etc.. và import chúng vào máy ảo SiBtyVM. Các ExternalFuction này sau đó có thể được truy cập thông qua các định danh như thông thường.
+```C#
+void main(){
+	SiBtyVirtualMachine  vm = new SiBtyVirtualMachine();
+	ExternalFunction.__function__  greeting = (ExternalFunction self) => {
+		Planguage.String name = self.load_var("name").type_cast(Types.String) as Planguage.String;
+		System.Console.WriteLine("hello {0}",name.value_);
+		self.set_return_value(new Planguage.Boolean(true));
+	}
+	//new ExternalFunction(
+		space, //name space to which this function belongs
+		function, // the delegate of the C# function body 
+		parameter_list // pamameters of this external function will be defined here, in this case "name"
+		);
+	vm.set_variable("hello",new ExternalFunction(vm.root_space, greeting, "name");
+	vm.load_from_input_stream();//or vm.load_from_file();
+}
+```
+
+After we defined the external function, we can call it in SiBty programs like following:
+```ruby
+hello("tran ba dat")
+#output : hello tran ba dat
+```
+#####16.2 Advanced case
+Trong trường hợp bạn muốn các extensions của mình được module hóa, vd: các extension chuyên xử lý việc đọc, ghi file. SiBty cung cấp lớp `BaseUtility` giúp nhà phát triển gộp các external methods vào các module để dễ dàng quản lý. 
+Ví dụ dưới đây sẽ tạo ra một Extension module chuyên về các hàm toán học.
+```C#
+public class MathUtils : BaseUtility{
+	public MathUtils(){
+		this.name_space = "math";
+		// this name_space will be prefixed on every external function in this module. We can leave it empty.
+	}
+	
+	//we will define external functions here
+	all external methods must be static, void, and accept only one parameter of type ExternalFunction
+	
+	/*
+	External attribute has two field: function_name and parameters 
+	function_name will be the variable name we use to access to the function in SiBty programs
+	parameters is the list of parameters's name as we defined in the simple case above
+	*/
+	[External(parammeters = new string[] { "number" })]
+        public static void square(ExternalFunction function){
+		Planguage.Float input = function.load_var("number").type_cast(Types.Float) as Planguage.Float;
+		function.set_return_value(new Planguage.Float(input._value * input._value));
+	}
+}
+```
+
+Sau khi đã định nghĩa extension module như trên, chúng ta tiến hành load nó vào SiBty VM:
+```C#
+
+void Main(){
+	var vm = new SiBtyVirtualMachine();
+	vm.load_external_methods(new MathUtils());
+	vm.load_from_input_stream();
+}
+
+```
+
+Sau đó chúng ta có thể truy cập vào các extension methods trong module trên như sau:
+```ruby
+print math_square(56.2)
+# 'math_square' instead of 'square' because we defined "math" as namespace of this module
+```
