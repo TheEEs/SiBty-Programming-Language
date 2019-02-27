@@ -320,7 +320,7 @@ void main(){
 }
 ```
 
-After we defined the external function, we can call it in SiBty programs like following:
+Sau khi định nghĩa phương thức mở rộng, chúng ta có thể truy cập nó trong SiBty như dưới đây:
 ```ruby
 hello("tran ba dat")
 #output : hello tran ba dat
