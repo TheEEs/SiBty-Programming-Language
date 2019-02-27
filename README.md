@@ -311,10 +311,10 @@ void main(){
 		self.set_return_value(new Planguage.Boolean(true));
 	}
 	//new ExternalFunction(
-		space, //name space to which this function belongs
-		function, // the delegate of the C# function body 
-		parameter_list // pamameters of this external function will be defined here, in this case "name"
-		);
+		//space, //name space to which this function belongs
+		//function, // the delegate of the C# function body 
+		//parameter_list // pamameters of this external function will be defined here, in this case "name"
+		//);
 	vm.set_variable("hello",new ExternalFunction(vm.root_space, greeting, "name");
 	vm.load_from_input_stream();//or vm.load_from_file();
 }
