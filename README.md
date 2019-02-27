@@ -311,7 +311,7 @@ void main(){
 		self.set_return_value(new Planguage.Boolean(true));
 	}
 	//new ExternalFunction(
-		//space, //name space to which this function belongs
+		//space, //space to which this function belongs, maybe a function or the root space of program
 		//function, // the delegate of the C# function body 
 		//parameter_list // pamameters of this external function will be defined here, in this case "name"
 		//);
