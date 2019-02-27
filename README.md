@@ -325,7 +325,7 @@ After we defined the external function, we can call it in SiBty programs like fo
 hello("tran ba dat")
 #output : hello tran ba dat
 ```
-#####16.2 Advanced case
+##### 16.2 Advanced case
 Trong trường hợp bạn muốn các extensions của mình được module hóa, vd: các extension chuyên xử lý việc đọc, ghi file. SiBty cung cấp lớp `BaseUtility` giúp nhà phát triển gộp các external methods vào các module để dễ dàng quản lý. 
 Ví dụ dưới đây sẽ tạo ra một Extension module chuyên về các hàm toán học.
 ```C#
