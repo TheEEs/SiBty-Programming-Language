@@ -336,7 +336,7 @@ public class MathUtils : BaseUtility{
 	}
 	
 	//we will define external functions here
-	all external methods must be static, void, and accept only one parameter of type ExternalFunction
+	//all external methods must be static, void, and accept only one parameter of type ExternalFunction
 	
 	/*
 	External attribute has two field: function_name and parameters 
