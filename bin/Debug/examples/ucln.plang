@@ -1,0 +1,15 @@
+var a;var b
+var ucln = do a,b
+while a<>b 
+if a>b a=a-b
+else b=b-a end
+next
+return a
+end
+
+while true
+print "enter a: "; a = console_read_number()
+print "enter b: "; b = console_read_number()
+
+print "uoc chung lon nhat cua ", a, " va ", b, " la "; console_write_line(ucln(a,b))
+next

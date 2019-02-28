@@ -24,7 +24,7 @@ namespace Planguage.vm.Utilities
     }
     public static class VM_Extensions
     {
-        public static void load_external_methods(this Planguage.SiBtyVirtualMachine vm, BaseUtility utility)
+        public static void load_extension_methods(this Planguage.SiBtyVirtualMachine vm, BaseUtility utility)
         {
             var type_of_utility = utility.GetType();
             var methods_info = type_of_utility.GetMethods();
@@ -50,9 +50,9 @@ namespace Planguage.vm.Utilities
                             method_name = (utility.name_space.Length > 0 ? utility.name_space + '_' : "" )+ method_name;
                             string[] method_parameters = attr.parammeters;
                             ExternalFunction.__function__ _func_ = (ExternalFunction.__function__)info.CreateDelegate(typeof(ExternalFunction.__function__));
-                            vm.set_variable(method_name, new ExternalFunction(
-                            vm.root_space, _func_, method_parameters)
-                                );
+                            var ex_func = new ExternalFunction(vm.root_space, _func_, method_parameters);
+                            vm.set_variable(method_name, ex_func);
+                            vm.root_space.external_methods.Add(method_name); 
                         }
                     }
                 }

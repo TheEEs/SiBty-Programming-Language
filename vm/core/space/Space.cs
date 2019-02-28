@@ -9,7 +9,8 @@ namespace Planguage
 		internal Dictionary<string, SibtyObject> variables = new Dictionary<string, SibtyObject>();
 		Stack<SibtyObject> expression_stack = new Stack<SibtyObject>();
 		internal List<SiBtyInstruction> instructions = new List<SiBtyInstruction>();
-		int _instrc_pointer = 0;
+        internal List<string> external_methods = new List<string>();
+        int _instrc_pointer = 0;
 
 		public void set_instruction_ptr(int value)
 		{
@@ -53,13 +54,13 @@ namespace Planguage
 			if (this.variables.ContainsKey(var_name))
 				this.variables[var_name] = value;
 			else
-				throw new Errors.VariableError();
+				throw new Errors.VariableError(var_name);
 		}
 		public SibtyObject load_var(string var_name) {
 			if (this.variables.ContainsKey(var_name))
 				return this.variables[var_name];
 			else
-				throw new Errors.VariableError();
+				throw new Errors.VariableError(var_name);
 		}
 		public void register_variable(string var_name) {
 			if (!this.variables.ContainsKey(var_name))

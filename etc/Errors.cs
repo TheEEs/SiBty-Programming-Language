@@ -18,13 +18,23 @@ namespace Planguage {
 			public IdentifierError(string id) {
 				this.id = id;
 			}
-			public override string message()
-			{
-				return this.id;
-			}
-		}
+            public override string message()
+            {
+                return this.id;
+            }
+        }
 
-		class VariableError : BaseError { }
+		class VariableError : BaseError {
+            string var_name;
+            public VariableError(string var_name = "")
+            {
+                this.var_name = var_name;
+            }
+            public override string message()
+            {
+                return this.var_name;
+            }
+        }
 
 		class ParameterError : BaseError {
 			public bool is_less_than = false;

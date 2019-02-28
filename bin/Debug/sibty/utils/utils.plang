@@ -1,0 +1,29 @@
+var for = do start , _end , step , function
+	var i = start
+	while i <= _end
+		if function(i) 
+			i = i + step 		
+		else
+			return false
+		end			
+	next
+	if i == _end + step || i == 0
+	  return true 
+	end
+end
+
+var loop = do func
+	while func()
+			
+	next
+end
+
+
+var each = do array, function
+	var length = array_len(array)
+	var i = 1
+	while i <= length
+		function(array[i - 1])
+		i = i + 1
+	next
+end

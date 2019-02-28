@@ -1,0 +1,6 @@
+var a =["vai lon", "fuck",1,3,5.7,0x23] 
+module_require("sibty/utils/utils.plang")   
+each(a,do item
+console_write_line(item)
+end)
+

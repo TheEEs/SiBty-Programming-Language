@@ -99,6 +99,9 @@
     <Compile Include="interpreter\ErrorHandler.cs" />
     <Compile Include="vm\Utilities\BaseUtility.cs" />
     <Compile Include="vm\Utilities\ModuleUtility\ModuleUtils.cs" />
+    <Compile Include="vm\Utilities\StringUtility\StringUtils.cs" />
+    <Compile Include="vm\Utilities\ConsoleUtility\ConsoleUtils.cs" />
+    <Compile Include="vm\Utilities\ArrayUtility\ArrayUtils.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -121,6 +124,9 @@
     <Folder Include="vm\core\instructions\etc\" />
     <Folder Include="vm\Utilities\" />
     <Folder Include="vm\Utilities\ModuleUtility\" />
+    <Folder Include="vm\Utilities\StringUtility\" />
+    <Folder Include="vm\Utilities\ConsoleUtility\" />
+    <Folder Include="vm\Utilities\ArrayUtility\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
