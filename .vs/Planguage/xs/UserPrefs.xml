@@ -1,11 +1,10 @@
 ﻿<Properties StartupConfiguration="{5A8F97DC-6EEA-4AFE-ACDE-CF4A48E0D16C}|Default">
   <MonoDevelop.Ide.ItemProperties.Planguage PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="vm/Utilities/ModuleUtility/ModuleUtils.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="vm/core/instructions/space/FunctionCall.cs">
     <Files>
       <File FileName="Program.cs" Line="44" Column="4" />
       <File FileName="vm/Utilities/StringUtility/StringUtils.cs" Line="13" Column="10" />
-      <File FileName="vm/Utilities/ConsoleUtility/ConsoleUtils.cs" Line="17" Column="48" />
-      <File FileName="vm/Utilities/ModuleUtility/ModuleUtils.cs" Line="24" Column="1" />
+      <File FileName="vm/Utilities/ModuleUtility/ModuleUtils.cs" Line="20" Column="35" />
       <File FileName="vm/Prototypes/ExternalFunction.cs" Line="27" Column="1" />
       <File FileName="vm/core/instructions/space/FunctionCall.cs" Line="26" Column="1" />
       <File FileName="vm/SiBtyVirtualMachine/SiBtyVirtualMachine.cs" Line="104" Column="1" />
@@ -16,9 +15,7 @@
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="/home/trandat/Desktop/Plang/vm/Utilities/ModuleUtility/ModuleUtils.cs" relfile="vm/Utilities/ModuleUtility/ModuleUtils.cs" line="23" column="1" />
-    </BreakpointStore>
+    <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
 </Properties>
