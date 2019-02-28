@@ -54,8 +54,6 @@ end)
             vm.load_from_input_stream();
             return;
 
-
-
         }
     }
 }

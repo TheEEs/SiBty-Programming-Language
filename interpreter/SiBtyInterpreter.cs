@@ -294,12 +294,24 @@ namespace Planguage
 																	  this.current_space.number_of_instruction()));
 		}
 
-
-		public override void EnterBreak_stat(langParser.Break_statContext context)
+        public override void EnterContinue_stat([NotNull] langParser.Continue_statContext context)
+        {
+            RuleContext rule = context.Parent;
+            while(rule != context.my_while)
+            {
+                if(rule.GetType().Name == "If_statContext")
+                {
+                    this.current_space.add_instruction(new PopStack(this.current_space));    
+                }
+                rule = rule.Parent;
+            }
+            this.current_space.add_instruction(new Jump(this.current_space,context.my_while.begin));
+        }
+        public override void EnterBreak_stat(langParser.Break_statContext context)
 		{
 			RuleContext rule = context.Parent;
 			while (rule != context.my_if)
-			{
+			{ 
 				if (rule.GetType().Name == "While_statContext")
 					this.current_space.add_instruction(new PopStack(this.current_space));
 				rule = rule.Parent;

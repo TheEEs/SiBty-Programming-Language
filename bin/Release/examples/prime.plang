@@ -1,0 +1,25 @@
+module_require("sibty/utils/utils.plang")
+var a
+var yes = " la so nguyen to"
+var no = " khong phai so nguyen to"
+while true
+	print "nhap a: "
+	a = console_read_number()
+	if a == 1
+		print a; console_write_line(yes);
+		continue
+	elif a == 0
+		console_write_line("please enter a number greater than zero")
+		continue 
+	end
+	if for(2,a /2 , 1, do i 
+			if a % i ==0 
+				return false
+			end 
+				return true
+		    end)
+		print a, yes , str_nl()
+	else
+		print a, no , str_nl()
+	end
+next
