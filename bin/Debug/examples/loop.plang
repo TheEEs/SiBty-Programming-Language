@@ -1,7 +1,7 @@
 module_require("sibty/utils/utils.plang")
 var a =0
 loop(do
-    if a < 100
+    if a < 50000
         a= a+1
         console_write_line(a)       
         return true

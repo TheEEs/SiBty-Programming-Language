@@ -1,11 +1,8 @@
 ﻿<Properties StartupConfiguration="{5A8F97DC-6EEA-4AFE-ACDE-CF4A48E0D16C}|Default">
   <MonoDevelop.Ide.ItemProperties.Planguage PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Program.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="vm/Utilities/ModuleUtility/ModuleUtils.cs">
     <Files>
-      <File FileName="vm/Utilities/StringUtility/StringUtils.cs" Line="17" Column="2" />
-      <File FileName="interpreter/langParserBaseListener.cs" Line="1" Column="1" />
-      <File FileName="interpreter/langParser.cs" Line="113" Column="66" />
-      <File FileName="Program.cs" Line="47" Column="41" />
+      <File FileName="vm/Utilities/ModuleUtility/ModuleUtils.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
