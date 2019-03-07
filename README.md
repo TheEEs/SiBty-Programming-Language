@@ -4,7 +4,7 @@
 
 #### Giới thiệu
 
-![Simple is Beauty](https://cdn1.imggmi.com/uploads/2019/3/7/89153ca921c85ba9049eec7947939c10-full.png)
+![20190308_001208_0001.png](https://uphinhnhanh.com/images/2019/03/07/20190308_001208_0001.png)
 
 ... Là một ngôn ngữ lập trình kịch bản. SiBty sở hữu một concept đơn giản nhưng linh hoạt, có thể được sử dụng cho mục đích giáo dục hoặc nhúng vào các ứng dụng lớn hơn.
 
