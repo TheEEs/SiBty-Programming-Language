@@ -373,24 +373,32 @@ Ngay từ đầu SiBty không được thiết kế để trở thành một ng�
 
 SiBty chưa có cú pháp chính thức để tạo ra một object. Cách duy nhất để tạo ra các object cho đến hiện tại, đó là sử dụng extension method `obj_create`.
 
-Hàm `obj_create` nhận vào một hàm `X` với ít nhất một tham số, một đối tượng mới sẽ được truyền vào tham số đầu tiên. Giá trị trả về của `obj_create` chính là giá trị trả về của hàm `X`. Do đó nếu muốn `obj_create` trả về một đối tượng mới, trong hàm `X` bạn cần return tham số đầu tiên. Chương trình dưới đây sẽ tiến hành tạo ra một đối tượng và ghi đè các toán tử :
+Hàm `obj_create` nhận vào một hàm `X` với ít nhất một tham số, một đối tượng mới sẽ được truyền vào tham số đầu tiên. Giá trị trả về của `obj_create` chính là giá trị trả về của hàm `X`. Do đó nếu muốn `obj_create` trả về một đối tượng mới, trong hàm `X` bạn cần return tham số đầu tiên. Chương trình dưới đây sẽ tiến hành tạo ra một đối tượng:
 ```ruby
-var o =obj_create(do object 
-    object["a"] = 5
-    object["add"] = do self,value
-        return self["a"] + value
-    end
-    object["set_a"] = do self,value
-        self["a"] = value
-    end
-    object["get_a"] = do self
-        return self["a"]
-    end   
-    return object
-end)
-print "gia tri cua o#a truoc khi thay doi: ";console_write_line(o.get_a())
-o.set_a(6)
-print "gia tri cua o#a sau khi thay doi va + 6: ", o + 6, str_nl()
+module_require("sibty/utils/utils.plang")
+var new_person = do name,age,gender
+	return obj_create(do person
+		person["name"] = name
+		person["age"] = age
+		person["gender"] = gender
+		person["greet"] = do self
+			print "Hello , my name is ", self["name"], str_nl()
+		end
+		person["sex"] = do self
+			return if self["gender"]
+				break "male"
+			else
+				break "female"
+			end
+		end
+		return person	
+	end)
+end
+#true is male
+#false is female
+var dat = new_person("Dat", 20, true)
+dat.greet()
+print "I'm a ", dat.sex() , str_nl()
 ```
 
 ### 18. Operator-Overriding
