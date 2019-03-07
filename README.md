@@ -440,4 +440,4 @@ Bảng dưới đây liệt kê các toán tử và tên tương ứng của ch�
 | ||       |      logic_or           |
 | []=     |      member_setting      |
 
-> **Important!!**: Hãy chú ý khi ghi đè hai toán tử `[]=` v
+> **Important!!**: Hãy chú ý khi ghi đè hai toán tử `[]=` và `[]` vì chúng có thể l
