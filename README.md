@@ -183,7 +183,7 @@ Dưới đây là một ví dụ kiểm tra biến a có phải là một số n
 
 
 ```ruby
-module_require("sibty/
+module_require("sibty/utils/utils.plang")
 var a = 55
 if for(2,a/ 2,1,do i
 		if a%i==0 return false end
