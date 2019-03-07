@@ -411,7 +411,31 @@ console_write_line(object + 6)
 ```
 
 Bảng dưới đây liệt kê các toán tử và tên tương ứng của chúng:
-| Toán tử                                  | Giải thích                  |
-| -----------------------------------------------------------------------|
-| +                                        | positive                    |
-| +                                        | add                    |
+
+| Operator | Corresponding name      |
+| -------- | ----------------------- |
+| +        |      positive           |
+| -        |      negative           |
+| []       |      member_access      |
+| !        |      bool_not           |
+| ~        |      bitwise_not        |
+| **       |      exponent           |
+| *        |      mul                |
+| /        | div                     |
+| %        |      remainder          |
+| +        |      add                |
+| -        |      sub                |
+| <<       |      lshift             |
+| >>       |      rshift             |
+| <        |      smaller            |
+| <=       |      smaller_or_equal   |
+| >        |      bigger             |
+| >=       |      bigger_or_equal    |
+| ==       |      equal              |
+| <>       |      different          |
+| &        |      bitwise_and        |
+| |        |      bitwise_or         |
+| ^        |      bitwise_xor        |
+| &&       |      logic_and          |
+| ||       |      logic_or           |
+| [] =     |      member_setting     |
