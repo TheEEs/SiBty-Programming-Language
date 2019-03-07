@@ -368,7 +368,7 @@ print math_square(56.2)
 # 'math_square' instead of 'square' because we defined "math" as namespace of this module
 ```
 
-### Object-Oriented-Programing (or something similar)
+### 17. Object-Oriented-Programing (or something similar)
 Ngay từ đầu SiBty không được thiết kế để trở thành một ngôn ngữ hướng đối tượng, tuy nhiên các chương trình trong SiBty vẫn có thể sử dụng pattern này nếu muốn.
 
 SiBty chưa có cú pháp chính thức để tạo ra một object. Cách duy nhất để tạo ra các object cho đến hiện tại, đó là sử dụng extension method `obj_create`.
@@ -393,7 +393,7 @@ o.set_a(6)
 print "gia tri cua o#a sau khi thay doi va + 6: ", o + 6, str_nl()
 ```
 
-### Operator-Overriding
+### 18. Operator-Overriding
 Các toán tử trong SiBty được biên dịch thành các member đặc biệt.
 Ví dụ : để ghi đè toán tử `+`, bạn cần phải thiết đặt member `"add"` của một đối tượng
 ```ruby
