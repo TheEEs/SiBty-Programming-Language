@@ -367,3 +367,51 @@ Sau đó chúng ta có thể truy cập vào các extension methods trong module
 print math_square(56.2)
 # 'math_square' instead of 'square' because we defined "math" as namespace of this module
 ```
+
+### Object-Oriented-Programing (or something similar)
+Ngay từ đầu SiBty không được thiết kế để trở thành một ngôn ngữ hướng đối tượng, tuy nhiên các chương trình trong SiBty vẫn có thể sử dụng pattern này nếu muốn.
+
+SiBty chưa có cú pháp chính thức để tạo ra một object. Cách duy nhất để tạo ra các object cho đến hiện tại, đó là sử dụng extension method `obj_create`.
+
+Hàm `obj_create` nhận vào một hàm `X` với ít nhất một tham số, một đối tượng mới sẽ được truyền vào tham số đầu tiên. Giá trị trả về của `obj_create` chính là giá trị trả về của hàm `X`. Do đó nếu muốn `obj_create` trả về một đối tượng mới, trong hàm `X` bạn cần return tham số đầu tiên. Chương trình dưới đây sẽ tiến hành tạo ra một đối tượng và ghi đè các toán tử :
+```ruby
+var o =obj_create(do object 
+    object["a"] = 5
+    object["add"] = do self,value
+        return self["a"] + value
+    end
+    object["set_a"] = do self,value
+        self["a"] = value
+    end
+    object["get_a"] = do self
+        return self["a"]
+    end   
+    return object
+end)
+print "gia tri cua o#a truoc khi thay doi: ";console_write_line(o.get_a())
+o.set_a(6)
+print "gia tri cua o#a sau khi thay doi va + 6: ", o + 6, str_nl()
+```
+
+### Operator-Overriding
+Các toán tử trong SiBty được biên dịch thành các member đặc biệt.
+Ví dụ : để ghi đè toán tử `+`, bạn cần phải thiết đặt member `"add"` của một đối tượng
+```ruby
+var object = obj_create(do object
+	object["a"] = 0
+	object["add"] = do self,value
+		return self["a"] + value
+	end
+	return object
+end)
+print object["a"], str_nl()
+object["a"] = 6
+console_write_line(object + 6)
+# output : 12
+```
+
+Bảng dưới đây liệt kê các toán tử và tên tương ứng của chúng:
+| Toán tử                                  | Giải thích                  |
+| -----------------------------------------------------------------------|
+| +                                        | positive                    |
+| +                                        | add                    |
