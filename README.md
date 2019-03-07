@@ -438,4 +438,6 @@ Bảng dưới đây liệt kê các toán tử và tên tương ứng của ch�
 | ^        |      bitwise_xor        |
 | &&       |      logic_and          |
 | ||       |      logic_or           |
-| []=     |      member_setting     |
+| []=     |      member_setting      |
+
+> **Important!!**: Hãy chú ý khi ghi đè hai toán tử `[]=` v
