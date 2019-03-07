@@ -51,6 +51,7 @@ end)
             vm.load_extension_methods(new vm.Utilities.StringUtility.StringUtils());
             vm.load_extension_methods(new vm.Utilities.ConsoleUtility.ConsoleUtils());
             vm.load_extension_methods(new vm.Utilities.ArrayUtility.ArrayUtils());
+            vm.load_extension_methods(new vm.Utilities.ObjectUtility.ObjectUtils());
             vm.load_from_input_stream();
             return;
 

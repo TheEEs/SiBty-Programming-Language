@@ -6,7 +6,7 @@ namespace Planguage
 	public class BaseFunction : SiBtySpace, SibtyObject
 	{
 		internal SiBtySpace parent_space;
-		List<string> param_names = new List<string>();
+		internal List<string> param_names = new List<string>();
 		List<string> var_names = new List<string>();
 		Stack<Dictionary<string, SibtyObject>> stack_of_stage_variable = new Stack<Dictionary<string, SibtyObject>>();
 		Dictionary<string, SibtyObject> current_stage_variables;//= new Dictionary<string, SibtyObject>();
@@ -302,8 +302,7 @@ namespace Planguage
 				this.instructions[this.Instruction_Pointer].exec();
 			}
 		}
-
-		public void clear_expression_stack()
+        public void clear_expression_stack()
 		{
 			this.current_expression_stack.Clear();
 		}

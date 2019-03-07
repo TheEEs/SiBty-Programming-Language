@@ -10,5 +10,6 @@ namespace Planguage
 		Array,
 		Boolean,
 		Nil,
-		Function	}
+		Function,
+        Object	}
 }

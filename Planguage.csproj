@@ -33,6 +33,7 @@
     <Reference Include="Antlr4.Runtime.Standard">
       <HintPath>..\packages\Antlr4.Runtime.Standard.4.7.1\lib\net35\Antlr4.Runtime.Standard.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.CSharp" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Program.cs" />
@@ -102,6 +103,8 @@
     <Compile Include="vm\Utilities\StringUtility\StringUtils.cs" />
     <Compile Include="vm\Utilities\ConsoleUtility\ConsoleUtils.cs" />
     <Compile Include="vm\Utilities\ArrayUtility\ArrayUtils.cs" />
+    <Compile Include="vm\Utilities\ObjectUtility\ObjectUtils.cs" />
+    <Compile Include="vm\Prototypes\Object.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -127,6 +130,7 @@
     <Folder Include="vm\Utilities\StringUtility\" />
     <Folder Include="vm\Utilities\ConsoleUtility\" />
     <Folder Include="vm\Utilities\ArrayUtility\" />
+    <Folder Include="vm\Utilities\ObjectUtility\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -46,7 +46,8 @@ end)
                     this.root_space.exec();
                 }
             }
-            catch (Errors.IdentifierError e)
+
+                        catch (Errors.IdentifierError e)
             {
             	Console.Write("An IdentifierError has been raised :{0}", e.message());
             }
