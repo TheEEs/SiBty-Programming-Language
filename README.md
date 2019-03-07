@@ -4,6 +4,8 @@
 
 #### Giới thiệu
 
+![Simple is Beauty](https://cdn1.imggmi.com/uploads/2019/3/7/89153ca921c85ba9049eec7947939c10-full.png)
+
 ... Là một ngôn ngữ lập trình kịch bản. SiBty sở hữu một concept đơn giản nhưng linh hoạt, có thể được sử dụng cho mục đích giáo dục hoặc nhúng vào các ứng dụng lớn hơn.
 
 Bạn có thể sử dụng SiBty nhằm gia tăng khả năng tùy biến ứng dụng cho người dùng. Tuy nhiên, sự đơn giản và thanh lịch trong cú pháp khiến SiBty hoàn toàn có khả năng trở thành một ngôn ngữ giảng dạy thay thế Pascal.
