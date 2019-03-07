@@ -7,10 +7,6 @@ using System.Text.RegularExpressions;
 namespace Planguage.vm.Prototypes
 {
     /*
-    obj_create(do object
-object["x"] =5
-print object["x"] + 6
-return object;end) 
      */
     public class Object : SibtyObject
     {

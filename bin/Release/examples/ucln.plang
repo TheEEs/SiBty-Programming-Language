@@ -1,10 +1,10 @@
 var a;var b
 var ucln = do a,b
-	while a<>b 
-		if a>b a=a-b
-		else b=b-a end
-	next
-	return a
+while a<>b 
+if a>b a=a-b
+else b=b-a end
+next
+return a
 end
 
 while true

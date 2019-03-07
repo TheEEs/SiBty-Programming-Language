@@ -1,10 +1,11 @@
 ﻿<Properties StartupConfiguration="{5A8F97DC-6EEA-4AFE-ACDE-CF4A48E0D16C}|Default">
   <MonoDevelop.Ide.ItemProperties.Planguage PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="vm/Prototypes/BaseFunction.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="vm/SiBtyVirtualMachine/SiBtyVirtualMachine.cs">
     <Files>
-      <File FileName="vm/Utilities/ObjectUtility/ObjectUtils.cs" Line="36" Column="56" />
-      <File FileName="vm/Prototypes/Object.cs" Line="50" Column="110" />
-      <File FileName="vm/Prototypes/BaseFunction.cs" Line="291" Column="55" />
+      <File FileName="vm/Utilities/ObjectUtility/ObjectUtils.cs" Line="16" Column="10" />
+      <File FileName="vm/Prototypes/Object.cs" Line="9" Column="7" />
+      <File FileName="vm/Prototypes/BaseFunction.cs" Line="13" Column="69" />
+      <File FileName="vm/SiBtyVirtualMachine/SiBtyVirtualMachine.cs" Line="61" Column="13" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

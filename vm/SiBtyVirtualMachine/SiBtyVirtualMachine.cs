@@ -2,6 +2,7 @@
 using Antlr4.Runtime;
 using Antlr4.Runtime.Tree;
 using System.Collections.Generic;
+using System.Diagnostics;
 namespace Planguage
 {
     /*
@@ -77,6 +78,13 @@ end)
             {
                 Console.Write("An TypeCastingError has been raised");
 
+            }
+            catch (System.Collections.Generic.KeyNotFoundException e)
+            {
+                var stackTrace = new StackTrace(e);
+                Console.Write("An ObjectMemberNotImplementedError has been raised: {0}",
+                stackTrace.GetFrame(1).GetMethod().Name
+                    );
             }
         }
 
