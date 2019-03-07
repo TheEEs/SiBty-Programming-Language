@@ -19,7 +19,7 @@ namespace Planguage.vm.Prototypes
             Object @object = func.load_var("self").type_cast(Types.Object) as Object;
             String name = (String)func.load_var("key").type_cast(Types.String);
             SibtyObject value = func.load_var("value");
-            var regex = new Regex(@"^[a-zA-Z0-9_]+$");
+            var regex = new Regex(@"^[a-zA-Z_][a-zA-Z0-9_]*$");
             if (!regex.IsMatch(name._value))
                 throw new Planguage.Errors.IdentifierError(name._value);
             if (value is BaseFunction)
