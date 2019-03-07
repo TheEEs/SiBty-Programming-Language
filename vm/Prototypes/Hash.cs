@@ -27,10 +27,10 @@ public SibtyObject function_call()
 			throw new OperatorError();
 		}
 		public SibtyObject member_setting(SibtyObject key, SibtyObject value) {
-			if (this._value.ContainsKey(key))
-				return this._value[key] = value;
-			else
-				throw new Errors.VariableError();
+            if (this._value.ContainsKey(key))
+                return this._value[key] = value;
+            else
+                throw new Errors.HashMemberNotFoundError(((String)key)._value);
 		}
 		public SibtyObject bigger(SibtyObject value)
 		{

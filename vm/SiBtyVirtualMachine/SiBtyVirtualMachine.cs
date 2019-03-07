@@ -47,10 +47,9 @@ end)
                     this.root_space.exec();
                 }
             }
-
-                        catch (Errors.IdentifierError e)
+            catch (Errors.IdentifierError e)
             {
-            	Console.Write("An IdentifierError has been raised :{0}", e.message());
+                Console.Write("An IdentifierError has been raised :{0}", e.message());
             }
             catch (Errors.NilClassException)
             {
@@ -66,12 +65,7 @@ end)
             }
             catch (Errors.VariableError e)
             {
-
-                if (e.message() == "each")
-                {
-
-                }
-                Console.Write("An VariableError has been raise :{0}",e.message());
+                Console.Write("An VariableError has been raise :{0}", e.message());
 
             }
             catch (Errors.TypeCastingError)
@@ -84,6 +78,12 @@ end)
                 var stackTrace = new StackTrace(e);
                 Console.Write("An ObjectMemberNotImplementedError has been raised: {0}",
                 stackTrace.GetFrame(1).GetMethod().Name
+                    );
+            }
+            catch(Errors.HashMemberNotFoundError e)
+            {
+                Console.Write("An HashMemberNotFoundError has been raised: {0}",
+                e.message()
                     );
             }
         }
@@ -99,7 +99,7 @@ end)
             this.root_space.register_variable(name);
             this.root_space.assign(name, value);
         }
-        public void set_extension_inheritance(string name,SibtyObject value)
+        public void set_extension_inheritance(string name, SibtyObject value)
         {
             this.root_space.register_variable(name);
             this.root_space.assign(name, value);
@@ -115,7 +115,7 @@ end)
         public void load_from_input_stream()
         {
             this.can_run = true;
-            AntlrInputStream inputStream=  new AntlrInputStream(Console.OpenStandardInput());
+            AntlrInputStream inputStream = new AntlrInputStream(Console.OpenStandardInput());
             this.run(inputStream);
         }
     }
