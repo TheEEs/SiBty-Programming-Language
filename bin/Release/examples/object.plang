@@ -1,17 +1,24 @@
 module_require("sibty/utils/utils.plang")
-var o =obj_create(do object 
-    object["a"] = 5
-    object["add"] = do self,value
-        return self["a"] + value
-    end
-    object["set_a"] = do self,value
-        self["a"] = value
-    end
-    object["get_a"] = do self
-        return self["a"]
-    end   
-    return object
-end)
-print "gia tri cua o#a truoc khi thay doi: ";console_write_line(o.get_a())
-o.set_a(6)
-print "gia tri cua o#a sau khi thay doi va + 6: ", o + 6, str_nl()
+var new_person = do name,age,gender
+	return obj_create(do person
+		person["name"] = name
+		person["age"] = age
+		person["gender"] = gender
+		person["greet"] = do self
+			print "Hello , my name is ", self["name"], str_nl()		
+		end
+		person["sex"] = do self
+			return if self["gender"]
+				break male
+			else
+				break female
+			end
+		end
+		return person	
+	end)
+end
+#true is male
+#false is female
+var dat = new_person("Dat", 20, true)
+dat.greet()
+console_write_line(dat.sex())

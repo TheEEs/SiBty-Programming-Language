@@ -3,7 +3,34 @@ using System.Collections.Generic;
 using Planguage.Errors;
 namespace Planguage
 {
-	public class BaseFunction : SiBtySpace, SibtyObject
+
+    /*
+      module_require("sibty/utils/utils.plang")
+var new_person = do name,age,gender
+    return obj_create(do person
+        person["name"] = name
+        person["age"] = age
+        person["gender"] = gender
+        person["greet"] = do self
+            print "Hello , my name is ", self["name"], str_nl()
+        end
+        person["sex"] = do self
+            return if self["gender"]
+                break "male"
+            else
+                break "female"
+            end
+        end
+        return person   
+    end)
+end
+#true is male
+#false is female
+var dat = new_person("Dat", 20, true)
+dat.greet()
+console_write_line(dat.sex())   
+     */
+    public class BaseFunction : SiBtySpace, SibtyObject
 	{
 		internal SiBtySpace parent_space;
 		internal List<string> param_names = new List<string>();
@@ -278,7 +305,7 @@ namespace Planguage
 
 		public SibtyObject load_var(string var_name)
 		{
-			if (this.current_stage_variables.ContainsKey(var_name))
+            if (this.current_stage_variables != null && this.current_stage_variables.ContainsKey(var_name))
 				return this.current_stage_variables[var_name];
 			else if (this.parent_space != null)
 				return this.parent_space.load_var(var_name);

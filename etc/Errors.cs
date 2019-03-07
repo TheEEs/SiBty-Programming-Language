@@ -36,7 +36,20 @@ namespace Planguage {
             }
         }
 
-		class ParameterError : BaseError {
+        class HashMemberNotFoundError: BaseError
+        {
+            string member;
+            public HashMemberNotFoundError(string member_name)
+            {
+                this.member = member_name;
+            }
+            public override string message()
+            {
+                return this.member;
+            }
+        }
+
+        class ParameterError : BaseError {
 			public bool is_less_than = false;
 			public ParameterError(bool is_less_than) {
 				this.is_less_than = is_less_than;
