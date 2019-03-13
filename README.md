@@ -4,7 +4,7 @@
 
 #### Giới thiệu
 
-![20190308_001208_0001.png](https://uphinhnhanh.com/images/2019/03/07/20190308_001208_0001.png)
+![20190308_001208_0001.png](https://www.upsieutoc.com/images/2019/03/13/20190308_001208_0001.png)
 
 ... Là một ngôn ngữ lập trình kịch bản. SiBty sở hữu một concept đơn giản nhưng linh hoạt, có thể được sử dụng cho mục đích giáo dục hoặc nhúng vào các ứng dụng lớn hơn.
 
