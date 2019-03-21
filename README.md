@@ -18,7 +18,7 @@ Bạn có thể sử dụng SiBty nhằm gia tăng khả năng tùy biến ứng
 
 
 
-Dưới đây là một vài concepts dùng để tạo nên SiBty. Các concept này được vay mượn chủ yếu từ hai ngôn ngữ là `Lua` và `Ruby`:
+Dưới đây là một vài concepts dùng để tạo nên SiBty. Các concept này được lấy cảm hứng chủ yếu từ hai ngôn ngữ là `Lua` và `Ruby`:
 
 * Mọi thứ trong **SiBty** đều là các biểu thức, kể cả các hàm, các cấu trúc rẽ nhánh.
 * Kiểu động. 
@@ -265,7 +265,7 @@ print array
 
 ### 14. Hash. 
 
-Với phiên bản hiện tại , hash trong `SiBty` có chức năng tương đương như struct trong C. Cú pháp khai báo hash của `SiBty` được vay mượn từ Ruby. Ví dụ:
+Với phiên bản hiện tại , hash trong `SiBty` có chức năng tương đương như struct trong C. Cú pháp khai báo hash của `SiBty` được kế thừa từ Ruby. Ví dụ:
 
 ```ruby
 var hash = {a => "this is a hash"}
@@ -285,7 +285,7 @@ SiBty coi các hash là các object sơ khai. Bạn có thể gọi hàm trong h
 end}.function()
 ```
 
-Hãy chú ý tới member `function` trong hash trên. Đây được coi là một hàm thành viên. Tham số đầu tiên trong hàm này là `this`(có thể thay tên khác nếu muốn). Khi bạn gọi một hàm thành viên từ một hash, trình biên dịch sẽ tự động truyền hash đó vào tham số đầu tiên. Phương pháp này được vay mượn từ Python. Do đó, bạn cũng có thể tách riêng một hàm thành viên sau đó truyền hash vào tham số đầu tiên của nó. Ví dụ:
+Hãy chú ý tới member `function` trong hash trên. Đây được coi là một hàm thành viên. Tham số đầu tiên trong hàm này là `this`(có thể thay tên khác nếu muốn). Khi bạn gọi một hàm thành viên từ một hash, trình biên dịch sẽ tự động truyền hash đó vào tham số đầu tiên Do đó, bạn cũng có thể tách riêng một hàm thành viên sau đó truyền hash vào tham số đầu tiên của nó. Ví dụ:
 
 ```ruby
 var hash ={greeting=> "helloworld", function=> do this
