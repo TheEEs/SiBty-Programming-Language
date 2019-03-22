@@ -4,6 +4,8 @@
 
 #### Giới thiệu
 
+![20190308_001208_0001.png](https://www.upsieutoc.com/images/2019/03/13/20190308_001208_0001.png)
+
 ... Là một ngôn ngữ lập trình kịch bản. SiBty sở hữu một concept đơn giản nhưng linh hoạt, có thể được sử dụng cho mục đích giáo dục hoặc nhúng vào các ứng dụng lớn hơn.
 
 Bạn có thể sử dụng SiBty nhằm gia tăng khả năng tùy biến ứng dụng cho người dùng. Tuy nhiên, sự đơn giản và thanh lịch trong cú pháp khiến SiBty hoàn toàn có khả năng trở thành một ngôn ngữ giảng dạy thay thế Pascal.
@@ -16,7 +18,7 @@ Bạn có thể sử dụng SiBty nhằm gia tăng khả năng tùy biến ứng
 
 
 
-Dưới đây là một vài concepts dùng để tạo nên SiBty. Các concept này được vay mượn chủ yếu từ hai ngôn ngữ là `Lua` và `Ruby`:
+Dưới đây là một vài concepts dùng để tạo nên SiBty. Các concept này được lấy cảm hứng chủ yếu từ hai ngôn ngữ là `Lua` và `Ruby`:
 
 * Mọi thứ trong **SiBty** đều là các biểu thức, kể cả các hàm, các cấu trúc rẽ nhánh.
 * Kiểu động. 
@@ -183,6 +185,7 @@ Dưới đây là một ví dụ kiểm tra biến a có phải là một số n
 
 
 ```ruby
+module_require("sibty/utils/utils.plang")
 var a = 55
 if for(2,a/ 2,1,do i
 		if a%i==0 return false end
@@ -262,7 +265,7 @@ print array
 
 ### 14. Hash. 
 
-Với phiên bản hiện tại , hash trong `SiBty` có chức năng tương đương như struct trong C. Cú pháp khai báo hash của `SiBty` được vay mượn từ Ruby. Ví dụ:
+Với phiên bản hiện tại , hash trong `SiBty` có chức năng tương đương như struct trong C. Cú pháp khai báo hash của `SiBty` được kế thừa từ Ruby. Ví dụ:
 
 ```ruby
 var hash = {a => "this is a hash"}
@@ -282,7 +285,7 @@ SiBty coi các hash là các object sơ khai. Bạn có thể gọi hàm trong h
 end}.function()
 ```
 
-Hãy chú ý tới member `function` trong hash trên. Đây được coi là một hàm thành viên. Tham số đầu tiên trong hàm này là `this`(có thể thay tên khác nếu muốn). Khi bạn gọi một hàm thành viên từ một hash, trình biên dịch sẽ tự động truyền hash đó vào tham số đầu tiên. Phương pháp này được vay mượn từ Python. Do đó, bạn cũng có thể tách riêng một hàm thành viên sau đó truyền hash vào tham số đầu tiên của nó. Ví dụ:
+Hãy chú ý tới member `function` trong hash trên. Đây được coi là một hàm thành viên. Tham số đầu tiên trong hàm này là `this`(có thể thay tên khác nếu muốn). Khi bạn gọi một hàm thành viên từ một hash, trình biên dịch sẽ tự động truyền hash đó vào tham số đầu tiên Do đó, bạn cũng có thể tách riêng một hàm thành viên sau đó truyền hash vào tham số đầu tiên của nó. Ví dụ:
 
 ```ruby
 var hash ={greeting=> "helloworld", function=> do this
@@ -373,24 +376,32 @@ Ngay từ đầu SiBty không được thiết kế để trở thành một ng�
 
 SiBty chưa có cú pháp chính thức để tạo ra một object. Cách duy nhất để tạo ra các object cho đến hiện tại, đó là sử dụng extension method `obj_create`.
 
-Hàm `obj_create` nhận vào một hàm `X` với ít nhất một tham số, một đối tượng mới sẽ được truyền vào tham số đầu tiên. Giá trị trả về của `obj_create` chính là giá trị trả về của hàm `X`. Do đó nếu muốn `obj_create` trả về một đối tượng mới, trong hàm `X` bạn cần return tham số đầu tiên. Chương trình dưới đây sẽ tiến hành tạo ra một đối tượng và ghi đè các toán tử :
+Hàm `obj_create` nhận vào một hàm `X` với ít nhất một tham số, một đối tượng mới sẽ được truyền vào tham số đầu tiên. Giá trị trả về của `obj_create` chính là giá trị trả về của hàm `X`. Do đó nếu muốn `obj_create` trả về một đối tượng mới, trong hàm `X` bạn cần return tham số đầu tiên. Chương trình dưới đây sẽ tiến hành tạo ra một đối tượng:
 ```ruby
-var o =obj_create(do object 
-    object["a"] = 5
-    object["add"] = do self,value
-        return self["a"] + value
-    end
-    object["set_a"] = do self,value
-        self["a"] = value
-    end
-    object["get_a"] = do self
-        return self["a"]
-    end   
-    return object
-end)
-print "gia tri cua o#a truoc khi thay doi: ";console_write_line(o.get_a())
-o.set_a(6)
-print "gia tri cua o#a sau khi thay doi va + 6: ", o + 6, str_nl()
+module_require("sibty/utils/utils.plang")
+var new_person = do name,age,gender
+	return obj_create(do person
+		person["name"] = name
+		person["age"] = age
+		person["gender"] = gender
+		person["greet"] = do self
+			print "Hello , my name is ", self["name"], str_nl()
+		end
+		person["sex"] = do self
+			return if self["gender"]
+				break "male"
+			else
+				break "female"
+			end
+		end
+		return person	
+	end)
+end
+#true is male
+#false is female
+var dat = new_person("Dat", 20, true)
+dat.greet()
+print "I'm a ", dat.sex() , str_nl()
 ```
 
 ### 18. Operator-Overriding
