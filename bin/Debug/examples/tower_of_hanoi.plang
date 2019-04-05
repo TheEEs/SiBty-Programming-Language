@@ -1,0 +1,38 @@
+#we denote three columns by index from 1 to 3
+module_require("sibty/utils/utils.plang")
+
+var create_plate = do level, current_column, expected_column
+	return object_create(do plate 
+		plate["current_column"] = current_column
+		plate["expected_column"] = expected_column
+		plate["is_on_the_expected_col"] = do self
+			return self["current_column"] == self["expected_column"]
+		end
+		return plate
+	end)
+end
+
+var disk= []
+for(1,5,1, do i 
+	disk<< create_plate(i, 1, 3)
+end)
+
+for top_of_the_disk = do disks, column_index
+	var index = 0;var len = array_len(disks)
+	while index < len
+		if disks[index]["current_column"] == column_index
+			return disks[index]["current_column"]
+		end
+		index = index + 1
+	next
+end
+
+var is_the_game_end = do columns
+	var final_expected_column = columns[array_len(columns)-1]["expected_column"]
+	return for(0,array_len(columns)-1,1, do plate
+		if plate["current_column"] <> final_expected_column
+			return false
+		end
+		return true 
+	end)
+end
