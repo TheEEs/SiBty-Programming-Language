@@ -1,11 +1,22 @@
 module_require("sibty/utils/utils.plang")
 var plates = []
 #columns are indexed sequentialy as 1,2,3 
-for(1,3,1, do i
+for(1,4,1, do i
     plates << {
         level => i,
         expected_col => nil,
-        current_col => 1
+        current_col => 1,
+        is_on_expected_col => do self
+            return self["expected_col"] == self["current_col"]
+        end,
+        move_to_expected_col => do self
+            print self["current_col"] , " to ", self ["expected_col"], str_nl()
+            self["current_col"] = self["expected_col"]
+            return true
+        end,
+        set_expected_col => do self, col
+            self["expected_col"] = col
+        end
         }
     return true
 end)
@@ -23,6 +34,9 @@ var top_of_col = do plates, col_index
 end
 
 var maybe_moved = do plate
+    if plate["level"] == 0 
+        return true
+    end
 	var top_of_this_col = top_of_col(plates,plate["current_col"])
     var top_of_expected_col = top_of_col(plates,plate["expected_col"])
     if top_of_this_col 
@@ -30,7 +44,7 @@ var maybe_moved = do plate
     		if !top_of_expected_col
         		return true
         	end
-            if top_of_expected_col["level"] >= plate["level"]
+            if top_of_expected_col["level"] > plate["level"]
             	return true
             end
     	end
@@ -38,39 +52,57 @@ var maybe_moved = do plate
     return false
 end
 
-var get_intermediate_col = do source,target
-	if source == 1 and target == 3
-        return 2
-    elif source == 2 and target == 3
-        return 1
-    elif source == 1 and target == 2
-        return 3
+var get_intermediate_col = do source, dist
+	if source == 1
+    	if dist == 2
+            return 3
+        elif dist == 3
+            return 2
+        end
+    elif source == 2
+        if dist == 1
+            return 3
+        elif dist == 3
+        	return 1
+        end
+    elif source == 3
+        if dist == 1
+            return 2
+        elif dist == 2
+            return 1
+        end
     end
 end
 
 var move = do index
-	if index == 0 
-    	if plates[index]["expected_col"] <> plates[index]["current_col"]
-            print plates[index]["current_col"], " to ", plates[index]["expected_col"], str_nl()
-            plates[index]["current_col"] = plates[index]["expected_col"]
-        end
-        return true
-    elif index > 0
-    	if maybe_moved(plates[index])
-            if plates[index]["expected_col"] <> plates[index]["current_col"]
-            	print plates[index]["current_col"], " to ", plates[index]["expected_col"], str_nl()
-            end
-            plates[index]["current_col"] = plates[index]["expected_col"]
-            plates[index - 1]["expected_col"] = plates[index]["expected_col"]
-        	return true and move(index - 1)
-        else
-            var middle_col = get_intermediate_col(plates[index]["current_col"],plates[index]["expected_col"])
-        	plates[index - 1]["expected_col"] = middle_col
-            return false and move(index - 1)
-        end
+	var plate = plates[index]
+    var top_plate
+    if plate.is_on_expected_col() 
+        return true and if plate["level"] > 1
+        	top_plate = plates[index - 1]
+        	top_plate.set_expected_col(plate["current_col"])
+        	break move(index - 1)
+    	else
+        	break true
+    	end
+	elif maybe_moved(plate)
+    	plate.move_to_expected_col()
+    	return true and if plate["level"] > 1 
+    		top_plate = plates[index - 1]
+    		top_plate.set_expected_col(plate["current_col"])
+        	break move(index - 1)
+    	else
+        	break true
+    	end
+	else
+		top_plate = plates[index - 1]
+		top_plate.set_expected_col(get_intermediate_col(
+            plate["current_col"],
+            plate["expected_col"]
+            ))
+		return false and move(index -1 )
     end
 end
 
-plates[array_len(plates)-1]["expected_col"] = 3
-while !move(array_len(plates)-1)
-next
+plates[array_len(plates) - 1]["expected_col"] = 3
+while !move(array_len(plates) - 1) ; next
